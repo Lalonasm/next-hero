@@ -1,15 +1,27 @@
-import { getPosts } from "@/services/postApi";
+// import { getPosts } from "@/services/postApi";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export const metadata = {
-    title: "Post ",
-    description: "About post",
-};
+// export const metadata = {
+//     title: "Post ",
+//     description: "About post",
+// };
+
+const getPost = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+    const data = await res.json();
+    // if (data) {
+    //     redirect(`/posts/${data[0].id}`)
+    // }
+    return data;
+}
+
 
 const PostPage = async () => {
 
-    const postsData = await getPosts()
-    console.log(postsData);
+
+    const postsData = await getPost()
+    // console.log(postsData);
 
     return (
         <div className="">

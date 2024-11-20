@@ -9,7 +9,7 @@ export const generateMetadata = async ({ params }) => {
     const postData = await res.json();
     return {
         title: {
-            absolute:`${postData.title}`
+            absolute: `${postData.title}`
         },
         description: postData.body,
         keywords: postData.body.split(' ')

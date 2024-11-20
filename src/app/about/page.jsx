@@ -9,12 +9,22 @@ export const metadata = {
     keywords: ["about", "about page"]
 };
 
-const AboutPage = () => {
+const getTime = async () => {
+    const res = await fetch("http://localhost:3000/time", { next: { revalidate: 5 } })
+    const data = await res.json();
+    return data.currentTime;
+
+}
+
+const AboutPage = async () => {
+
+    const currentTime = await getTime();
+
     return (
         <div className={`${headland.className} gap-10 px-6 text-3xl flex min-h-screen mt-10`}>
             About Page
             {/* <AboutContents ></AboutContents> */}
-
+            <h3 className="text-red-400 mt-12 text-3xl">Time :{currentTime} </h3>
         </div>
     );
 };

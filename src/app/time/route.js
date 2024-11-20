@@ -1,5 +1,7 @@
-export function GET(){
+export const dynamic = 'force-dynamic'
+export function GET() {
     return Response.json({
-        currentTime : new Date().toLocaleTimeString()
+        currentTime: new Date().toLocaleTimeString()
     })
 }
+
