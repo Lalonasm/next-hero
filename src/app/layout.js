@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AuthProvider from "./services/AuthProvider";
 
 const inter = Inter({ subsets: ['latin'] });
 const roboto = Roboto({ weight: ['400', '500', '700', '900'], subsets: ['latin'] });
@@ -29,17 +30,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={roboto.className}
+      <AuthProvider>
+        <body
+          className={roboto.className}
 
-      >
-        <Navbar></Navbar>
-        <div className="">
-          {children}
-        </div>
+        >
+          <Navbar></Navbar>
+          <div className="">
+            {children}
+          </div>
 
-        <Footer></Footer>
-      </body>
+          <Footer></Footer>
+        </body>
+      </AuthProvider>
     </html>
   );
 }

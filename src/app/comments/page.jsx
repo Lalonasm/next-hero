@@ -2,8 +2,8 @@
 
 const page = () => {
     return (
-        <div className="min-h-screen">
-            Dashboard is running
+        <div>
+            Comments Page
         </div>
     );
 };

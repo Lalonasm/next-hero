@@ -1,5 +1,7 @@
 import AboutContents from "@/components/AboutContents";
+import { getServerSession } from "next-auth";
 import { Headland_One } from "next/font/google";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const headland = Headland_One({ weight: ['400'], subsets: ['latin'] })
 
@@ -16,8 +18,10 @@ const getTime = async () => {
 
 }
 
-const AboutPage = async () => {
 
+const AboutPage = async () => {
+    const session = await getServerSession(authOptions)
+    console.log(session);
     const currentTime = await getTime();
 
     return (
