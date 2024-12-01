@@ -32,6 +32,7 @@ const Navbar = () => {
             title: 'Dashboard',
             path: '/dashboard'
         },
+     
         // {
         //     title: 'Time',
         //     path: '/time'
@@ -79,7 +80,9 @@ const Navbar = () => {
 
                         <Link href={'/api/auth/signup'}>
                             <button onClick={handler} className="bg-white  mr-3 px-4  py-2 hover:bg-slate-500 font-semibold  rounded text-orange-600">Sign Up</button></Link>
-                        {session.status !== 'authenticated' ? <button onClick={handler} className="bg-white  px-4  py-2 hover:bg-slate-500 font-semibold  rounded text-orange-600">Login</button>
+                        {session.status !== 'authenticated' ? <Link href={'/api/auth/signin'}>
+                            <button onClick={handler} className="bg-white  px-4  py-2 hover:bg-slate-500 font-semibold  rounded text-orange-600">Login</button>
+                        </Link>
                             :
                             <button
                                 onClick={() => signOut()}
